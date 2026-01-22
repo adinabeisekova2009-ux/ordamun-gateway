@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Instagram, Mail, ArrowUp } from "lucide-react";
+import ordamunLogo from "@/assets/ordamun-logo.jpg";
 
 export const Footer = () => {
   const scrollToTop = () => {
@@ -13,9 +14,11 @@ export const Footer = () => {
           {/* Logo & Copyright */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-full bg-gradient-gold flex items-center justify-center">
-                <span className="font-display font-bold text-background text-sm">O</span>
-              </div>
+              <img 
+                src={ordamunLogo} 
+                alt="OrdaMUN Logo" 
+                className="h-10 w-auto"
+              />
               <span className="font-display text-lg font-semibold text-foreground">
                 Orda<span className="text-gold">MUN</span>
               </span>
