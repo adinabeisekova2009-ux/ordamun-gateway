@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ordamunLogo from "@/assets/ordamun-logo.jpg";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -51,9 +52,11 @@ export const Navbar = () => {
             transition={{ delay: 0.2 }}
             className="flex items-center gap-3"
           >
-            <div className="w-12 h-12 rounded-full bg-gradient-gold flex items-center justify-center">
-              <span className="font-display font-bold text-background text-lg">O</span>
-            </div>
+            <img 
+              src={ordamunLogo} 
+              alt="OrdaMUN Logo" 
+              className="h-12 w-auto"
+            />
             <span className="font-display text-xl font-semibold text-foreground">
               Orda<span className="text-gold">MUN</span>
             </span>
