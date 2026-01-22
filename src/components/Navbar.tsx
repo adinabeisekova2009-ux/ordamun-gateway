@@ -55,7 +55,7 @@ export const Navbar = () => {
             <img 
               src={ordamunLogo} 
               alt="OrdaMUN Logo" 
-              className="h-12 w-auto"
+              className="h-12 w-12 rounded-full object-cover"
             />
             <span className="font-display text-xl font-semibold text-foreground">
               Orda<span className="text-gold">MUN</span>
