@@ -82,7 +82,7 @@ export const RegistrationSection = () => {
 
   const canProceedStep1 =
     formData.fullName && formData.email && formData.phone && formData.school && formData.city;
-  const canProceedStep2 = formData.experience && formData.committee && formData.role;
+  const canProceedStep2 = formData.experience && formData.committee;
 
   return (
     <section
@@ -310,27 +310,6 @@ export const RegistrationSection = () => {
                     </Select>
                   </div>
 
-                  <div className="space-y-3">
-                    <Label>Role Preference *</Label>
-                    <RadioGroup
-                      value={formData.role}
-                      onValueChange={(value) => handleInputChange("role", value)}
-                      className="flex gap-6"
-                    >
-                      <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="delegate" id="delegate" />
-                        <Label htmlFor="delegate" className="cursor-pointer">
-                          Delegate
-                        </Label>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="observer" id="observer" />
-                        <Label htmlFor="observer" className="cursor-pointer">
-                          Observer
-                        </Label>
-                      </div>
-                    </RadioGroup>
-                  </div>
 
                   <div className="flex justify-between pt-4">
                     <Button
@@ -365,7 +344,7 @@ export const RegistrationSection = () => {
                         Registration Fee
                       </span>
                       <span className="text-2xl font-display font-bold text-gold">
-                        $50 USD
+                        2000 ₸
                       </span>
                     </div>
                     <p className="text-sm text-muted-foreground mb-4">
@@ -380,9 +359,9 @@ export const RegistrationSection = () => {
                       <p className="text-sm text-muted-foreground">
                         Bank: Kaspi Bank
                         <br />
-                        Account: 4400 1234 5678 9012
+                        Account: 4400 4302 2812 1395
                         <br />
-                        Name: OrdaMUN Organization
+                        Name: Adina. B
                       </p>
                     </div>
                   </div>

@@ -9,7 +9,6 @@ const navLinks = [
   { name: "About MUN", href: "#about-mun" },
   { name: "About OrdaMUN", href: "#about-ordamun" },
   { name: "Committees", href: "#committees" },
-  { name: "Schedule", href: "#schedule" },
   { name: "Contact", href: "#contact" },
 ];
 
