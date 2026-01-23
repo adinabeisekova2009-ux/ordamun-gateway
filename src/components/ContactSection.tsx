@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Instagram, Mail, MapPin, Phone } from "lucide-react";
+import { Instagram, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const ContactSection = () => {
@@ -33,10 +33,10 @@ export const ContactSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
           {/* Instagram */}
           <motion.a
-            href="https://instagram.com/ordamun"
+            href="https://instagram.com/orda_mun"
             target="_blank"
             rel="noopener noreferrer"
             initial={{ opacity: 0, y: 20 }}
@@ -50,32 +50,15 @@ export const ContactSection = () => {
             <h3 className="font-display font-semibold text-foreground mb-1">
               Instagram
             </h3>
-            <p className="text-sm text-gold">@ordamun</p>
-          </motion.a>
-
-          {/* Email */}
-          <motion.a
-            href="mailto:info@ordamun.kz"
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="group p-6 rounded-2xl bg-card border border-border hover:border-gold/30 transition-all duration-300 text-center"
-          >
-            <div className="w-14 h-14 rounded-xl bg-gold/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-              <Mail className="w-7 h-7 text-gold" />
-            </div>
-            <h3 className="font-display font-semibold text-foreground mb-1">
-              Email
-            </h3>
-            <p className="text-sm text-gold">info@ordamun.kz</p>
+            <p className="text-sm text-gold">@orda_mun</p>
           </motion.a>
 
           {/* Phone */}
           <motion.a
-            href="tel:+77771234567"
+            href="tel:+77054674869"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             className="group p-6 rounded-2xl bg-card border border-border hover:border-gold/30 transition-all duration-300 text-center"
           >
             <div className="w-14 h-14 rounded-xl bg-burgundy/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
@@ -84,14 +67,14 @@ export const ContactSection = () => {
             <h3 className="font-display font-semibold text-foreground mb-1">
               Phone
             </h3>
-            <p className="text-sm text-gold">+7 (777) 123-4567</p>
+            <p className="text-sm text-gold">+7 705 467 4869</p>
           </motion.a>
 
           {/* Location */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
             className="group p-6 rounded-2xl bg-card border border-border hover:border-gold/30 transition-all duration-300 text-center"
           >
             <div className="w-14 h-14 rounded-xl bg-muted flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
@@ -100,7 +83,7 @@ export const ContactSection = () => {
             <h3 className="font-display font-semibold text-foreground mb-1">
               Location
             </h3>
-            <p className="text-sm text-muted-foreground">Almaty, Kazakhstan</p>
+            <p className="text-sm text-muted-foreground">Zhezkazgan, Kazakhstan</p>
           </motion.div>
         </div>
       </div>

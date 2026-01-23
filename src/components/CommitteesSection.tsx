@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Users, AlertCircle, CheckCircle } from "lucide-react";
+import { Globe, Monitor, Languages } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 const committees = [
@@ -9,9 +9,8 @@ const committees = [
     name: "UN Security Council",
     abbreviation: "UNSC",
     topic: "Addressing Emerging Threats to International Peace and Security",
-    difficulty: "Advanced",
-    seats: 15,
-    seatsLeft: 5,
+    format: "Offline",
+    languages: ["English"],
     description:
       "The most powerful UN body, responsible for maintaining international peace and security.",
   },
@@ -19,9 +18,8 @@ const committees = [
     name: "UN General Assembly",
     abbreviation: "UNGA",
     topic: "Sustainable Development Goals: Progress and Challenges",
-    difficulty: "Beginner",
-    seats: 40,
-    seatsLeft: 18,
+    format: "Offline",
+    languages: ["Kazakh", "Russian"],
     description:
       "The main deliberative body where all UN member states have equal representation.",
   },
@@ -29,9 +27,8 @@ const committees = [
     name: "UN Human Rights Council",
     abbreviation: "UNHRC",
     topic: "Protecting Human Rights in the Digital Age",
-    difficulty: "Intermediate",
-    seats: 25,
-    seatsLeft: 10,
+    format: "Online",
+    languages: ["Russian", "English"],
     description:
       "Responsible for strengthening the promotion and protection of human rights around the globe.",
   },
@@ -39,9 +36,8 @@ const committees = [
     name: "Economic and Social Council",
     abbreviation: "ECOSOC",
     topic: "Global Economic Recovery Post-Pandemic",
-    difficulty: "Intermediate",
-    seats: 30,
-    seatsLeft: 14,
+    format: "Offline",
+    languages: ["Russian"],
     description:
       "Coordinates the economic and social work of the UN and its specialized agencies.",
   },
@@ -49,9 +45,8 @@ const committees = [
     name: "Historical Crisis Committee",
     abbreviation: "HCC",
     topic: "The Cuban Missile Crisis (1962)",
-    difficulty: "Advanced",
-    seats: 20,
-    seatsLeft: 7,
+    format: "Online",
+    languages: ["English"],
     description:
       "A dynamic committee where delegates navigate historical events with unexpected twists.",
   },
@@ -59,25 +54,17 @@ const committees = [
     name: "International Court of Justice",
     abbreviation: "ICJ",
     topic: "Territorial Disputes and Maritime Boundaries",
-    difficulty: "Advanced",
-    seats: 12,
-    seatsLeft: 4,
+    format: "Offline",
+    languages: ["Kazakh", "Russian", "English"],
     description:
       "The principal judicial organ of the UN, settling legal disputes between states.",
   },
 ];
 
-const getDifficultyColor = (difficulty: string) => {
-  switch (difficulty) {
-    case "Beginner":
-      return "bg-green-500/20 text-green-400 border-green-500/30";
-    case "Intermediate":
-      return "bg-gold/20 text-gold border-gold/30";
-    case "Advanced":
-      return "bg-burgundy/20 text-burgundy-light border-burgundy/30";
-    default:
-      return "bg-muted text-muted-foreground";
-  }
+const getFormatStyle = (format: string) => {
+  return format === "Online"
+    ? "bg-blue-500/20 text-blue-400 border-blue-500/30"
+    : "bg-green-500/20 text-green-400 border-green-500/30";
 };
 
 export const CommitteesSection = () => {
@@ -124,11 +111,16 @@ export const CommitteesSection = () => {
                 {/* Header */}
                 <div className="flex items-start justify-between mb-4">
                   <div>
-                    <Badge
-                      className={`mb-3 ${getDifficultyColor(committee.difficulty)}`}
-                    >
-                      {committee.difficulty}
-                    </Badge>
+                    <div className="flex items-center gap-2 mb-3">
+                      <Badge className={getFormatStyle(committee.format)}>
+                        {committee.format === "Online" ? (
+                          <Monitor size={12} className="mr-1" />
+                        ) : (
+                          <Globe size={12} className="mr-1" />
+                        )}
+                        {committee.format}
+                      </Badge>
+                    </div>
                     <h3 className="font-display text-xl font-semibold text-foreground">
                       {committee.name}
                     </h3>
@@ -151,27 +143,18 @@ export const CommitteesSection = () => {
                   <p className="text-sm text-foreground mt-1">{committee.topic}</p>
                 </div>
 
-                {/* Seats Info */}
-                <div className="flex items-center justify-between pt-4 border-t border-border">
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Users size={16} />
-                    <span>{committee.seats} seats</span>
-                  </div>
-                  <div
-                    className={`flex items-center gap-1.5 text-sm ${
-                      committee.seatsLeft <= 5
-                        ? "text-burgundy-light"
-                        : "text-green-400"
-                    }`}
-                  >
-                    {committee.seatsLeft <= 5 ? (
-                      <AlertCircle size={14} />
-                    ) : (
-                      <CheckCircle size={14} />
-                    )}
-                    <span>
-                      {committee.seatsLeft} left
-                    </span>
+                {/* Languages */}
+                <div className="flex items-center gap-2 pt-4 border-t border-border">
+                  <Languages size={16} className="text-muted-foreground" />
+                  <div className="flex flex-wrap gap-1.5">
+                    {committee.languages.map((lang) => (
+                      <span
+                        key={lang}
+                        className="px-2 py-0.5 text-xs rounded-full bg-gold/10 text-gold border border-gold/20"
+                      >
+                        {lang}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>
