@@ -41,7 +41,7 @@ export const HeroSection = () => {
           >
             <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
             <span className="text-sm font-medium text-gold">
-              Almaty, Kazakhstan • March 2025
+              Zhezkazgan, Kazakhstan • March 2025
             </span>
           </motion.div>
 
@@ -99,26 +99,6 @@ export const HeroSection = () => {
             </Button>
           </motion.div>
 
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.8 }}
-            className="mt-16 grid grid-cols-3 gap-8 max-w-md mx-auto"
-          >
-            {[
-              { value: "200+", label: "Delegates" },
-              { value: "6", label: "Committees" },
-              { value: "3", label: "Days" },
-            ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-2xl md:text-3xl font-display font-bold text-gold">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
-              </div>
-            ))}
-          </motion.div>
         </motion.div>
 
         {/* Scroll Indicator */}
