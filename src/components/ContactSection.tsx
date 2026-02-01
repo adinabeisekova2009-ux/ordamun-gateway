@@ -36,7 +36,7 @@ export const ContactSection = () => {
         <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
           {/* Instagram */}
           <motion.a
-            href="https://instagram.com/orda_mun"
+            href="https://instagram.com/orda.mun"
             target="_blank"
             rel="noopener noreferrer"
             initial={{ opacity: 0, y: 20 }}
@@ -50,7 +50,7 @@ export const ContactSection = () => {
             <h3 className="font-display font-semibold text-foreground mb-1">
               Instagram
             </h3>
-            <p className="text-sm text-gold">@orda_mun</p>
+            <p className="text-sm text-gold">@orda.mun</p>
           </motion.a>
 
           {/* Phone */}
