@@ -6,58 +6,22 @@ import { Badge } from "@/components/ui/badge";
 
 const committees = [
   {
-    name: "UN Security Council",
-    abbreviation: "UNSC",
-    topic: "Addressing Emerging Threats to International Peace and Security",
+    name: "UN Environment Programme",
+    abbreviation: "UNEP",
+    topic: "Электрондық қалдықтар мен технологиялық ластану: жаһандық қауіп және шешімдер.",
     format: "Offline",
-    languages: ["English"],
+    languages: ["Kazakh"],
     description:
-      "The most powerful UN body, responsible for maintaining international peace and security.",
+      "Координирует экологическую деятельность ООН, помогая странам внедрять экологически безопасную политику.",
   },
   {
-    name: "UN General Assembly",
-    abbreviation: "UNGA",
-    topic: "Sustainable Development Goals: Progress and Challenges",
+    name: "UN Population Fund",
+    abbreviation: "UNFPA",
+    topic: "Ресурстары шектеулі аймақтарда мәдени және діни нормаларды ескере отырып, әйелдердің репродуктивтік құқықтарына қолжетімділікті қамтамасыз ету.",
     format: "Offline",
-    languages: ["Kazakh", "Russian"],
+    languages: ["Kazakh"],
     description:
-      "The main deliberative body where all UN member states have equal representation.",
-  },
-  {
-    name: "UN Human Rights Council",
-    abbreviation: "UNHRC",
-    topic: "Protecting Human Rights in the Digital Age",
-    format: "Online",
-    languages: ["Russian", "English"],
-    description:
-      "Responsible for strengthening the promotion and protection of human rights around the globe.",
-  },
-  {
-    name: "Economic and Social Council",
-    abbreviation: "ECOSOC",
-    topic: "Global Economic Recovery Post-Pandemic",
-    format: "Offline",
-    languages: ["Russian"],
-    description:
-      "Coordinates the economic and social work of the UN and its specialized agencies.",
-  },
-  {
-    name: "Historical Crisis Committee",
-    abbreviation: "HCC",
-    topic: "The Cuban Missile Crisis (1962)",
-    format: "Online",
-    languages: ["English"],
-    description:
-      "A dynamic committee where delegates navigate historical events with unexpected twists.",
-  },
-  {
-    name: "International Court of Justice",
-    abbreviation: "ICJ",
-    topic: "Territorial Disputes and Maritime Boundaries",
-    format: "Offline",
-    languages: ["Kazakh", "Russian", "English"],
-    description:
-      "The principal judicial organ of the UN, settling legal disputes between states.",
+      "Агентство ООН по вопросам сексуального и репродуктивного здоровья, работающее над расширением прав женщин.",
   },
 ];
 
