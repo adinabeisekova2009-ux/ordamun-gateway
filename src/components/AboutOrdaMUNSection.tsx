@@ -64,25 +64,6 @@ export const AboutOrdaMUNSection = () => {
               preparing delegates for the challenges of tomorrow's global stage.
             </p>
 
-            {/* Quick Facts */}
-            <div className="grid grid-cols-2 gap-6">
-              <div className="p-4 rounded-xl bg-muted/30 border border-border">
-                <div className="text-3xl font-display font-bold text-gold mb-1">
-                  2025
-                </div>
-                <div className="text-sm text-muted-foreground">
-                  Inaugural Conference
-                </div>
-              </div>
-              <div className="p-4 rounded-xl bg-muted/30 border border-border">
-                <div className="text-3xl font-display font-bold text-gold mb-1">
-                  15+
-                </div>
-                <div className="text-sm text-muted-foreground">
-                  Schools Represented
-                </div>
-              </div>
-            </div>
           </motion.div>
 
           {/* Right - Values Cards */}
