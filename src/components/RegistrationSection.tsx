@@ -17,12 +17,8 @@ import { CheckCircle, Upload, CreditCard, User } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const committees = [
-  { value: "unsc", label: "UN Security Council (UNSC)" },
-  { value: "unga", label: "UN General Assembly (UNGA)" },
-  { value: "unhrc", label: "UN Human Rights Council (UNHRC)" },
-  { value: "ecosoc", label: "Economic and Social Council (ECOSOC)" },
-  { value: "hcc", label: "Historical Crisis Committee (HCC)" },
-  { value: "icj", label: "International Court of Justice (ICJ)" },
+  { value: "unep", label: "UN Environment Programme (UNEP)" },
+  { value: "unfpa", label: "UN Population Fund (UNFPA)" },
 ];
 
 const experienceLevels = [
