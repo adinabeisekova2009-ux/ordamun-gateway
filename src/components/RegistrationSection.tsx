@@ -4,7 +4,6 @@ import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import {
   Select,
   SelectContent,
@@ -12,9 +11,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { CheckCircle, Upload, CreditCard, User } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const committees = [
   { value: "unep", label: "UN Environment Programme (UNEP)" },
@@ -33,6 +32,7 @@ export const RegistrationSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const { toast } = useToast();
   const [step, setStep] = useState(1);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -41,7 +41,6 @@ export const RegistrationSection = () => {
     city: "",
     experience: "",
     committee: "",
-    role: "delegate",
     paymentProof: null as File | null,
   });
 
@@ -55,25 +54,52 @@ export const RegistrationSection = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Registration Submitted!",
-      description: "Thank you for registering. We'll contact you shortly with confirmation.",
-    });
-    // Reset form
-    setStep(1);
-    setFormData({
-      fullName: "",
-      email: "",
-      phone: "",
-      school: "",
-      city: "",
-      experience: "",
-      committee: "",
-      role: "delegate",
-      paymentProof: null,
-    });
+    setIsSubmitting(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke('send-registration', {
+        body: {
+          fullName: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          school: formData.school,
+          city: formData.city,
+          experience: formData.experience,
+          committee: formData.committee,
+        },
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Тіркелу сәтті жіберілді!",
+        description: "Рақмет! Біз сізбен жақын арада байланысамыз.",
+      });
+
+      // Reset form
+      setStep(1);
+      setFormData({
+        fullName: "",
+        email: "",
+        phone: "",
+        school: "",
+        city: "",
+        experience: "",
+        committee: "",
+        paymentProof: null,
+      });
+    } catch (error) {
+      console.error("Error submitting registration:", error);
+      toast({
+        title: "Қате орын алды",
+        description: "Тіркелуді жіберу кезінде қате орын алды. Қайталап көріңіз.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const canProceedStep1 =
@@ -397,8 +423,8 @@ export const RegistrationSection = () => {
                     >
                       Back
                     </Button>
-                    <Button type="submit" variant="gold">
-                      Complete Registration
+                    <Button type="submit" variant="gold" disabled={isSubmitting}>
+                      {isSubmitting ? "Жіберілуде..." : "Complete Registration"}
                     </Button>
                   </div>
                 </div>
